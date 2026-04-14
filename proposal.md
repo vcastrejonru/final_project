@@ -20,12 +20,12 @@ Feature 4:
 - Research different methods for pixelating images.
 - Learn how to limit color palettes without losing visual information and/or color accuracy.
 - Keep experimenting with particle systems to create a more interactive and visually appealing design.
-  - Optional: Research how to add  sliders to adjsut size and velocity of particle systems.
--  I will try to make this into a downloadable asset for actual intercative wallpaper use.
+  - Optional: Research how to add  sliders to adjust size and velocity of particle systems.
+-  I will try to make this into a downloadable asset for actual interactive wallpaper use.
   
 ## Outcomes
 Ideal Outcome:
-Selected image is succesfuly turned into a stylized/downloadable wallpaper with multiple intercative features.
+Selected image is succesfuly turned into a stylized/downloadable wallpaper with multiple interactive features.
 
 Minimal Viable Outcome:
 Selected image is succesfully pixelated with interactive particle system.
@@ -43,7 +43,7 @@ Selected image is succesfully pixelated with interactive particle system.
 ### Week 3:
   1. Create particle system.
   2. Based on image, particles will match.
-  3. Adjsut size/speed of particles for depth effect.
+  3. Adjust size/speed of particles for depth effect.
 ### Week 4:
   1. Add controls for pixel size, color count, particle amount.
   2. Make it a downloadable asset.
