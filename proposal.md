@@ -1,7 +1,7 @@
 # A Study in Pixels
 
 ## Repository
-<link>
+https://github.com/vcastrejonru/final_project.git
 
 ## Description
 This will be a tool that translates an image (illustration in this case) into a stylized pixel composition. The end result will be paired with ambient systems for interactive backgrounds.
