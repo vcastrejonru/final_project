@@ -11,6 +11,8 @@ def main():
     image = pygame.image.load('illustartion_RMV.jpg')
     width, height = image.get_size()
     resolution = (width, height)
+    small_img = pygame.transform.scale(image, (width//8, height//8))
+    pixelated_img = pygame.transform.scale(small_img, (resolution))
     screen = pygame.display.set_mode(resolution)
     running = True
     while running:
@@ -20,7 +22,7 @@ def main():
         #image = pygame.transform.scale(width//3, height//3)
         #image = pygame.transform.scale(width, height)
         black = pygame.Color(0, 0, 0)
-        screen.blit(image)
+        screen.blit(pixelated_img, (0, 0))
         pygame.display.flip()
         dt = clock.tick(12)
     pygame.quit()
