@@ -62,6 +62,8 @@ def main():
         for particle in particles:
             particle.fall()
             particle.draw(screen)
+        
+        dt = clock.tick(12)
         pygame.display.flip()
     pygame.quit()
 
