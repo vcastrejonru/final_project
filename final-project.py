@@ -1,6 +1,12 @@
 import random
 import pygame
 
+# Can i add a feature to let the user choose a file from their documents???? 
+
+# Add particle system
+    # Look into sprites for diff particles shapes
+    # + math for light sway of leaves falling
+    # make the sprites choose random color based on the image
 
 def main():
     pygame.init()
