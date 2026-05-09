@@ -8,6 +8,40 @@ import pygame
     # + math for light sway of leaves falling
     # make the sprites choose random color based on the image
 
+class Particle():
+
+    def __init__(self, pos=(1, 0), size=(10), life=1000):
+        self.pos = pos
+        self.size = size
+        self.color = pygame.Color(self.random_color())
+        self.age = 0
+        self.life = life
+        self.dead = False
+        self.alpha = 255
+        self.surface = self.update_surface()
+
+    def random_color(self):
+
+        x = random.randint(0, self.image.get_width())
+        y = random.randint(0, self.image.get_height()) 
+
+    def update(self, dt):
+        self.age += dt
+        if self.age > self.life:
+             self.dead = True
+        self.alpha = 255 * (1 - (self.age / self.life))
+
+    def update_surface(self):
+        
+        #sprites?
+    def draw(self, surface):
+        if self.dead:
+            return
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+
+
+
 def main():
     pygame.init()
     pygame.display.set_caption('Pixel Art Screen')
