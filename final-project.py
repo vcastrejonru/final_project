@@ -11,15 +11,23 @@ import pygame
 image = pygame.image.load('illustartion_RMV.jpg')
 width, height = image.get_size()
 particle_img = pygame.image.load('leaf.png')
-particle_img = pygame.transform.scale(particle_img, (15, 15))
+
+particle_img = pygame.transform.scale(particle_img, (25, 25))
+
 
 class Particle:
     def __init__(self):
         self.x = random.randint(0, width)
         self.y = random.randint(0, height)
         self.speed = random.randint(5, 15)
+        self.drift = random.uniform(-10, 10)
+        size = random.randint(20, 50)
+        self.image = pygame.transform.scale(particle_img, (size, size))
+
+    
 
     def fall(self):
+        self.x += self.drift
         self.y += self.speed #this will keep the  particle movign downard, its updating its position w the speed
         if self.y > height: #this is too see if the particle has fallen out of the sceen
             self.y = random.randint(-height, 0) #this resets the particle above the screen (avoids syncornized falling, thanks sam)
@@ -63,7 +71,7 @@ def main():
             particle.fall()
             particle.draw(screen)
         
-        dt = clock.tick(12)
+        dt = clock.tick(12) #dont delete
         pygame.display.flip()
     pygame.quit()
 
