@@ -20,7 +20,7 @@ def tint(image, color):
     tint_surface = pygame.Surface(image.get_size())
     tint_surface.fill(color)
 
-    tinted.blit(tint_surface, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
+    tinted.blit(tint_surface, (0, 0), special_flags=pygame.BLEND_PREMULTIPLIED)
 
     return tinted
 
