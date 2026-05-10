@@ -1,3 +1,4 @@
+import math
 import random
 import pygame
 
@@ -20,14 +21,18 @@ class Particle:
         self.x = random.randint(0, width)
         self.y = random.randint(0, height)
         self.speed = random.randint(5, 15)
-        self.drift = random.uniform(-10, 10)
+
         size = random.randint(20, 50)
         self.image = pygame.transform.scale(particle_img, (size, size))
 
+        self.start_x = self.x
+        self.angle = random.uniform(0, 6.28)
     
 
     def fall(self):
-        self.x += self.drift
+        self.angle += 0.3
+        self.x = self.start_x + math.sin(self.angle) * 25
+
         self.y += self.speed #this will keep the  particle movign downard, its updating its position w the speed
         if self.y > height: #this is too see if the particle has fallen out of the sceen
             self.y = random.randint(-height, 0) #this resets the particle above the screen (avoids syncornized falling, thanks sam)
