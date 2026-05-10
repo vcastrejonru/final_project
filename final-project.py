@@ -15,19 +15,33 @@ particle_img = pygame.image.load('leaf.png')
 
 particle_img = pygame.transform.scale(particle_img, (25, 25))
 
+def tint(image, color):
+    tinted = image.copy()
+    tint_surface = pygame.Surface(image.get_size())
+    tint_surface.fill(color)
+
+    tinted.blit(tint_surface, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
+
+    return tinted
+
+
 
 class Particle:
     def __init__(self):
+        #particles porperties
         self.x = random.randint(0, width)
         self.y = random.randint(0, height)
         self.speed = random.randint(5, 15)
-
         size = random.randint(20, 50)
-        self.image = pygame.transform.scale(particle_img, (size, size))
-
+        #particle image
+        base_image = pygame.transform.scale(particle_img, (size, size))
+        #sampling the background for a color at spawn posiiton
+        color = image.get_at((self.x, self.y))
+        #this applies the color tint
+        self.image = tint(base_image, color)
+       
         self.start_x = self.x
         self.sway_angle = random.uniform(0, 6.28)
-    
 
     def fall(self):
         self.sway_angle += 0.3
@@ -36,14 +50,13 @@ class Particle:
         self.y += self.speed #this will keep the  particle movign downard, its updating its position w the speed
         if self.y > height: #this is too see if the particle has fallen out of the sceen
             self.y = random.randint(-height, 0) #this resets the particle above the screen (avoids syncornized falling, thanks sam)
-    
+   
     def draw(self, screen):
-        screen.blit(particle_img, (self.x, self.y))
+        screen.blit(self.image, (self.x, self.y))
 
 particles = []
 for i in range(50):
     particles.append(Particle())
-
 
 def main():
     pygame.init()
