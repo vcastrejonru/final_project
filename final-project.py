@@ -31,7 +31,7 @@ class Particle:
         #particles porperties
         self.x = random.randint(0, width)
         self.y = random.randint(0, height)
-        self.speed = random.randint(5, 15)
+        self.speed = random.randint(5, 10)
         size = random.randint(20, 50)
         #particle image
         base_image = pygame.transform.scale(particle_img, (size, size))
@@ -52,6 +52,9 @@ class Particle:
             self.y = random.randint(-height, 0) #this resets the particle above the screen (avoids syncornized falling, thanks sam)
    
     def draw(self, screen):
+        shadows = self.image.copy()
+        shadows.fill((0, 0, 0, 100), special_flags=pygame.BLEND_RGBA_MULT)
+        screen.blit(shadows, (self.x + 2, self.y + 3))
         screen.blit(self.image, (self.x, self.y))
 
 particles = []
