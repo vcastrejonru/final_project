@@ -1,11 +1,16 @@
 import math
 import random
 import pygame
+from PIL import Image
 
-pygame.init()
+# notes for tomorrow:
+    # try resizing so bg image keeps size ration but overall display resolution fits on screen
+    # fix gif saving bugs
+    #pixelated image resizes weird when pixel mode is active ?
 
-image = pygame.image.load('illustration_2.jpg')
+image = pygame.image.load('illustration_3.jpg')
 width, height = image.get_size()
+resolution = (800, 800)
 particle_img = pygame.image.load('leaf.png')
 
 particle_img = pygame.transform.scale(particle_img, (25, 25))
@@ -58,10 +63,11 @@ def main():
     pygame.init()
     pygame.display.set_caption('Pixel Art Screen')
     clock = pygame.time.Clock()
-    resolution = (width, height)
+    frames = []
+    recording = True
     small_img = pygame.transform.scale(image, (width//8, height//8))
-    pixelated_img = pygame.transform.scale(small_img, resolution)
-    screen = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
+    pixelated_img = pygame.transform.scale(small_img, (width, height))
+    screen = pygame.display.set_mode(resolution)
     running = True
     show_pixelated = True
     while running:
@@ -84,10 +90,26 @@ def main():
         for particle in particles:
             particle.fall()
             particle.draw(screen)
+        if recording:
+            frame = pygame.surfarray.array3d(screen)
+            frame = frame.swapaxes(0, 1)
+            frames.append(frame)
+        if len(frames) > 300:
+            recording = False
         
         dt = clock.tick(12) #dont delete
         pygame.display.flip()
     pygame.quit()
+
+    images = [Image.fromarray(frame) for frame in frames]
+
+    #images[0].save(
+        #"pixel_art.gif",
+        #save_all = True,
+        #append_images = images[1:],
+        #duration = 16,
+        #loop = 0
+   # )
 
 if __name__ == "__main__":
     main()
