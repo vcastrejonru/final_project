@@ -2,10 +2,9 @@ import math
 import random
 import pygame
 
-# Can i add a feature to let the user choose a file from their documents???? 
+pygame.init()
 
-
-image = pygame.image.load('illustartion_RMV.jpg')
+image = pygame.image.load('illustration_2.jpg')
 width, height = image.get_size()
 particle_img = pygame.image.load('leaf.png')
 
@@ -62,7 +61,7 @@ def main():
     resolution = (width, height)
     small_img = pygame.transform.scale(image, (width//8, height//8))
     pixelated_img = pygame.transform.scale(small_img, resolution)
-    screen = pygame.display.set_mode(resolution)
+    screen = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
     running = True
     show_pixelated = True
     while running:
