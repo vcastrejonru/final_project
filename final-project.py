@@ -26,12 +26,12 @@ class Particle:
         self.image = pygame.transform.scale(particle_img, (size, size))
 
         self.start_x = self.x
-        self.angle = random.uniform(0, 6.28)
+        self.sway_angle = random.uniform(0, 6.28)
     
 
     def fall(self):
-        self.angle += 0.3
-        self.x = self.start_x + math.sin(self.angle) * 25
+        self.sway_angle += 0.3
+        self.x = self.start_x + math.sin(self.sway_angle) * 25
 
         self.y += self.speed #this will keep the  particle movign downard, its updating its position w the speed
         if self.y > height: #this is too see if the particle has fallen out of the sceen
