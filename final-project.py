@@ -8,11 +8,11 @@ from PIL import Image
     # fix gif saving bugs
     #pixelated image resizes weird when pixel mode is active ?
 
-image = pygame.image.load('illustration_3.jpg')
+original_img = pygame.image.load('illustartion_RMV.jpg')
+image = original_img
 width, height = image.get_size()
-resolution = (800, 800)
+resolution = (width, height)
 particle_img = pygame.image.load('leaf.png')
-
 particle_img = pygame.transform.scale(particle_img, (25, 25))
 
 def tint(image, color):
@@ -60,14 +60,15 @@ for i in range(50):
     particles.append(Particle())
 
 def main():
+    global image, width, height, pixelated_img, small_img
     pygame.init()
     pygame.display.set_caption('Pixel Art Screen')
     clock = pygame.time.Clock()
     frames = []
     recording = True
-    small_img = pygame.transform.scale(image, (width//8, height//8))
+    small_img = pygame.transform.scale(original_img, (width//8, height//8))
     pixelated_img = pygame.transform.scale(small_img, (width, height))
-    screen = pygame.display.set_mode(resolution)
+    screen = pygame.display.set_mode(resolution, pygame.RESIZABLE)
     running = True
     show_pixelated = True
     while running:
@@ -82,6 +83,12 @@ def main():
                     show_pixelated = False
                 if event.button == 3:
                     show_pixelated = True
+            if event.type == pygame.VIDEORESIZE:
+                screen = pygame.display.set_mode((event.w, event.h, ), pygame.RESIZABLE)
+                image = pygame.transform.scale(original_img, (event.w, event.h))
+                width, height = image.get_size()
+                small_img = pygame.transform.scale(original_img, (event.w//8, event.h//8))
+                pixelated_img = pygame.transform.scale(small_img, (event.w, event.h))
         if show_pixelated:
             screen.blit(pixelated_img, (0, 0))
         else:
