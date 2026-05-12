@@ -61,8 +61,8 @@ That being said...here's a list of things I will be changing/fixing:
 
 ## Links
 
-[Video Presentation] (https://www.youtube.com/watch?v=H8qlShl5UUI)
-[Repository] (https://github.com/vcastrejonru/final_project.git)
+[Video Presentation](https://www.youtube.com/watch?v=H8qlShl5UUI)
+[Repository](https://github.com/vcastrejonru/final_project.git)
 
 
 
