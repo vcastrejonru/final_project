@@ -2,8 +2,23 @@ import math
 import random
 import pygame
 from PIL import Image
+import tkinter as tk
+from tkinter import filedialog
 
-original_img = pygame.image.load('illustration_3.jpg')
+root = tk.Tk()
+root.withdraw()
+
+filename = filedialog.askopenfilename(
+    filetypes=[("Image files", "*.png *.jpg *.jpeg")]
+)
+
+root.destroy()
+
+if not filename:
+    quit()
+
+
+original_img = pygame.image.load(filename)
 image = original_img
 width, height = image.get_size()
 resolution = (width, height)
