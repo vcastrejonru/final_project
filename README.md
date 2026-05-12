@@ -49,7 +49,7 @@ pixel_art_1.gif|GIF example|
 
 ## What's next
 
-No project is perfect. And I for one am very excited about this one because not only is it my first ever pygame project, it is my first programming project. I am looking forward to keep experimenting with this new medium for art.
+No project is perfect. And I, for one, am very excited about this one because not only is it my first ever pygame project, it is my first programming project. I am looking forward to keep experimenting with this new medium for art.
 
 That being said...here's a list of things I will be changing/fixing:
 
