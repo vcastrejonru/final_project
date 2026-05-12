@@ -53,16 +53,16 @@ No project is perfect. And I, for one, am very excited about this one because no
 
 That being said...here's a list of things I will be changing/fixing:
 
--Window display resizing doesn't keep aspect ratio of background image.
--Different particle shapes to have some variety
--Particle rotation and differen falling speeds
--Wind gusts for a more dynamic and immersive experience
--Multiple image pixelation at once
+- Window display resizing doesn't keep aspect ratio of background image.
+- Different particle shapes to have some variety
+- Particle rotation and differen falling speeds
+- Wind gusts for a more dynamic and immersive experience
+- Multiple image pixelation at once
 
-##Links
+## Links
 
-[Video Presentation](https://www.youtube.com/watch?v=H8qlShl5UUI)
-[Repository](https://github.com/vcastrejonru/final_project.git)
+[Video Presentation] (https://www.youtube.com/watch?v=H8qlShl5UUI)
+[Repository] (https://github.com/vcastrejonru/final_project.git)
 
 
 
