@@ -1,5 +1,6 @@
 import math
 import random
+import os
 import pygame
 from PIL import Image
 import tkinter as tk
@@ -16,7 +17,6 @@ root.destroy()
 
 if not filename:
     quit()
-
 
 original_img = pygame.image.load(filename)
 image = original_img
@@ -124,9 +124,15 @@ def main():
     pygame.quit()
 
     images = [Image.fromarray(frame) for frame in frames]
+    count = 1
+
+    while os.path.exists(f'pixel_art_{count}.gif'):
+        count += 1
+
+    gif_name = f"pixel_art_{count}.gif"
 
     images[0].save(
-        "pixel_art.gif",
+        gif_name,
         save_all = True,
         append_images = images[1:],
         duration = 16,
